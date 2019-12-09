@@ -129,7 +129,7 @@ Bayes.logistic<-function(y,X,p,beta0,
     ## Update p through slice sampler
     target = function(p){log_condi_p(p, z, xbeta, hyper.a , hyper.b)}
     points = sliceSample(n = n.slice, target, x.interval=c(0, 5), root.accuracy = 0.001)
-    
+    p = points[n.slice]
     ## Save the results for p and beta
     keep.p[i]     <- points[n.slice]
     keep.beta[i,] <- beta
